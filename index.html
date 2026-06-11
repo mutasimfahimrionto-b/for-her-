@@ -2,135 +2,154 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For Jerin 💖</title>
+<title>Rionto 💖 Jerin</title>
 
 <style>
 body{
 margin:0;
-font-family: Arial, sans-serif;
-background: linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);
+font-family: Arial;
+background: linear-gradient(135deg,#0f0c29,#302b63,#24243e);
 color:white;
 text-align:center;
 overflow:hidden;
 }
 
-.container{
-position:relative;
-top:50%;
-transform:translateY(-50%);
+.page{
+display:none;
+padding:20px;
+height:100vh;
+align-items:center;
+justify-content:center;
+flex-direction:column;
 }
 
-.card{
-background: rgba(255,255,255,0.08);
-padding:25px;
-margin:auto;
-width:340px;
-border-radius:20px;
-backdrop-filter: blur(10px);
-box-shadow:0 0 25px rgba(255,255,255,0.2);
-animation: fadeIn 2s ease-in-out;
+.active{
+display:flex;
 }
 
 h1{
 color:#ff4d6d;
-font-size:22px;
 }
 
-p{
-font-size:15px;
-line-height:1.6;
-}
-
-.signature{
-margin-top:15px;
-font-weight:bold;
-color:#ffd1dc;
-}
-
-button{
-margin-top:15px;
-padding:10px 18px;
+.btn{
+padding:12px 18px;
+margin:10px;
 border:none;
-border-radius:10px;
+border-radius:12px;
 background:#ff4d6d;
 color:white;
 cursor:pointer;
+transition:0.3s;
 }
 
-button:hover{
+.btn:hover{
 background:#ff1e4d;
+transform:scale(1.05);
 }
 
-img{
-width:100%;
+.card{
+background:rgba(255,255,255,0.08);
+padding:20px;
 border-radius:15px;
-margin-top:10px;
+width:300px;
+backdrop-filter: blur(10px);
 }
 
-@keyframes fadeIn{
-from{opacity:0; transform:translateY(30px);}
-to{opacity:1; transform:translateY(0);}
+.back{
+background:#444;
 }
 
-/* floating hearts */
 .heart{
 position:absolute;
 color:pink;
-font-size:18px;
 animation: float 6s infinite linear;
 }
 
 @keyframes float{
-0%{transform:translateY(100vh); opacity:0;}
+0%{transform:translateY(100vh);opacity:0;}
 50%{opacity:1;}
-100%{transform:translateY(-10vh); opacity:0;}
+100%{transform:translateY(-10vh);opacity:0;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-<div class="card">
+<!-- HOME -->
+<div class="page active" id="home">
+<h1>💖 Rionto × Jerin 💖</h1>
+<p>Choose a memory category ✨</p>
 
-<h1>💌 A Little Surprise for Jerin 💌</h1>
-
-<p>
-Dear Jerin 💖<br><br>
-
-4 beautiful years together with you… and still it feels magical every single day ✨<br><br>
-
-You are not just my girlfriend, you are my peace, my happiness, and my favorite part of life 🌸<br><br>
-
-Every moment with you feels like an anime story I never want to end 💫<br><br>
-
-No matter where life goes, I will always choose you — again and again 💞<br><br>
-
-Forever yours,<br>
-Rionto 💌
-</p>
-
-<img src="https://i.pinimg.com/originals/5b/6d/8c/5b6d8c1f1d0c2b2f6c1f1b2d.jpg" alt="anime">
-
-<div class="signature">
-Made with love by Rionto 💖
+<button class="btn" onclick="showPage('love')">💌 Love Note</button>
+<button class="btn" onclick="showPage('memories')">📸 Memories</button>
+<button class="btn" onclick="showPage('promise')">🤝 Promise</button>
+<button class="btn" onclick="showPage('special')">✨ Special</button>
 </div>
 
-<button onclick="alert('Jerin 💖 You are my forever choice ✨')">
-Click for Surprise
-</button>
+<!-- LOVE NOTE -->
+<div class="page" id="love">
+<div class="card">
+<h2>💌 Love Note</h2>
+<p>
+Jerin 💖<br><br>
+You are my favorite person in this whole world.<br>
+No matter what happens, you will always be my choice ✨
+</p>
+<button class="btn back" onclick="showPage('home')">⬅ Back</button>
+</div>
+</div>
 
+<!-- MEMORIES -->
+<div class="page" id="memories">
+<div class="card">
+<h2>📸 Memories</h2>
+<p>
+Every day with you feels like a soft anime scene 🌸<br>
+Simple moments = best memories 💫
+</p>
+<button class="btn back" onclick="showPage('home')">⬅ Back</button>
+</div>
+</div>
+
+<!-- PROMISE -->
+<div class="page" id="promise">
+<div class="card">
+<h2>🤝 Promise</h2>
+<p>
+I promise to stay with you<br>
+even when things are hard 💖
+</p>
+<button class="btn back" onclick="showPage('home')">⬅ Back</button>
+</div>
+</div>
+
+<!-- SPECIAL -->
+<div class="page" id="special">
+<div class="card">
+<h2>✨ Special Message</h2>
+<p>
+Rionto loves Jerin 💖<br>
+Forever, no matter what ✨
+</p>
+<button class="btn back" onclick="showPage('home')">⬅ Back</button>
 </div>
 </div>
 
 <script>
-for(let i=0;i<25;i++){
-let heart=document.createElement("div");
-heart.className="heart";
-heart.innerHTML="💗";
-heart.style.left=Math.random()*100+"vw";
-heart.style.animationDuration=(3+Math.random()*5)+"s";
-document.body.appendChild(heart);
+// page switch system
+function showPage(id){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+
+// floating hearts
+for(let i=0;i<20;i++){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="💗";
+h.style.left=Math.random()*100+"vw";
+h.style.animationDuration=(3+Math.random()*5)+"s";
+document.body.appendChild(h);
 }
 </script>
 
