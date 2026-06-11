@@ -2,104 +2,102 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>For Penguin 🐧❤️</title>
+<title>For You</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 body{
   margin:0;
-  background: radial-gradient(circle,#0f0c29,#302b63,#000);
-  color:white;
-  font-family:'Poppins', sans-serif;
-  text-align:center;
-  overflow-x:hidden;
+  font-family:'Inter', sans-serif;
+  background: linear-gradient(135deg,#0f0f0f,#1a1a1a,#111827);
+  color:#e5e5e5;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
 }
 
-/* background glow */
+/* soft glow background */
 .bg{
   position:fixed;
   width:100%;
   height:100%;
-  background:linear-gradient(120deg,#ff4d6d,#6a5acd,#0f0c29);
-  opacity:0.25;
-  animation:move 10s infinite;
+  background: radial-gradient(circle at top,#2b2b2b,#000);
+  opacity:0.8;
   z-index:-1;
 }
 
-@keyframes move{
-  0%{filter:hue-rotate(0deg);}
-  50%{filter:hue-rotate(60deg);}
-  100%{filter:hue-rotate(0deg);}
+.card{
+  width:90%;
+  max-width:700px;
+  background:rgba(255,255,255,0.05);
+  padding:35px;
+  border-radius:18px;
+  backdrop-filter:blur(12px);
+  box-shadow:0 10px 40px rgba(0,0,0,0.6);
+  text-align:center;
+  animation:fade 1.5s ease;
 }
 
-.card{
-  max-width:750px;
-  margin:50px auto;
-  padding:30px;
-  background:rgba(255,255,255,0.06);
-  border-radius:20px;
-  backdrop-filter:blur(10px);
-  box-shadow:0 0 25px rgba(255,77,109,0.4);
+@keyframes fade{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
 h1{
-  font-family:'Great Vibes', cursive;
-  font-size:45px;
-  color:#ff4d6d;
+  font-weight:500;
+  font-size:28px;
+  letter-spacing:1px;
+  margin-bottom:10px;
 }
 
 p{
-  font-size:17px;
+  font-weight:300;
+  font-size:16px;
   line-height:1.8;
-  opacity:0.95;
+  color:#cfcfcf;
+}
+
+.media img{
+  width:180px;
+  height:180px;
+  object-fit:cover;
+  border-radius:12px;
+  margin:10px;
+  filter:grayscale(20%);
+  transition:0.3s;
+}
+
+.media img:hover{
+  filter:grayscale(0%);
+  transform:scale(1.05);
+}
+
+video{
+  width:100%;
+  border-radius:12px;
+  margin-top:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
 button{
+  margin-top:20px;
   padding:12px 25px;
   border:none;
-  border-radius:12px;
-  font-size:18px;
-  margin:10px;
+  border-radius:10px;
+  background:#ffffff10;
+  color:#e5e5e5;
   cursor:pointer;
   transition:0.3s;
 }
 
-#yes{
-  background:#ff2e63;
-  color:white;
-  box-shadow:0 0 20px #ff2e63;
+button:hover{
+  background:#ffffff20;
 }
 
-#yes:hover{
-  transform:scale(1.1);
-}
-
-#no{
-  background:#222;
-  color:white;
-}
-
-.heart{
-  position:absolute;
-  animation:float 6s linear infinite;
-}
-
-@keyframes float{
-  0%{transform:translateY(100vh);opacity:1;}
-  100%{transform:translateY(-10vh);opacity:0;}
-}
-
-.popup{
+audio{
   display:none;
-  position:fixed;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  background:white;
-  color:black;
-  padding:25px;
-  border-radius:15px;
 }
 </style>
 </head>
@@ -108,63 +106,36 @@ button{
 
 <div class="bg"></div>
 
-<!-- MUSIC -->
-<audio autoplay loop>
-  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d5a2b3c2b7.mp3?filename=romantic-love-110397.mp3" type="audio/mp3">
-</audio>
-
 <div class="card">
 
-<h1>🐧 For My Penguin Jerin ❤️</h1>
+<h1>A Message for You</h1>
 
 <p>
-Jerin 🐧, you are the calm in my chaos and the smile in my every day.  
-You make simple moments feel special without even trying.
-
-No matter where life goes, having you in my thoughts always feels like home.  
-You are my peace, my comfort, and my favorite feeling in this world.
+Some people quietly become the most important part of your life without even trying.  
+This is not about words, it is about feelings that stay even in silence.  
+You are that quiet presence that feels like comfort, peace and home at the same time.
 </p>
 
-<h2 style="font-family:'Great Vibes', cursive; color:#ff4d6d;">
-Will you stay with me forever, Penguin 🐧? ❤️
-</h2>
-
-<button id="yes" onclick="yes()">Yes ❤️</button>
-<button id="no">No 😢</button>
-
+<div class="media">
+<img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7">
+<img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131">
 </div>
 
-<div class="popup" id="popup">
-<h2>🐧❤️ She Said Yes!</h2>
-<p>Thank you for choosing love 💖</p>
-<br>
-<h3>Rionto loves you so much ❤️</h3>
+<h1>Watch This</h1>
+
+<video controls>
+  <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+</video>
+
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d5a2b3c2b7.mp3?filename=romantic-love-110397.mp3">
+</audio>
+
+<button onclick="document.getElementById('music').play()">
+Play Music
+</button>
+
 </div>
-
-<script>
-function yes(){
-  document.getElementById("popup").style.display="block";
-}
-
-// moving NO button
-const no=document.getElementById("no");
-no.onmouseover=function(){
-  this.style.position="absolute";
-  this.style.left=Math.random()*80+"%";
-  this.style.top=Math.random()*80+"%";
-}
-
-// floating hearts
-function heart(){
-  const h=document.createElement("div");
-  h.className="heart";
-  h.innerHTML="❤️";
-  h.style.left=Math.random()*100+"vw";
-  document.body.appendChild(h);
-  setTimeout(()=>h.remove(),6000);
-}
-setInterval(heart,300);
-</script>
 
 </body>
 </html>
