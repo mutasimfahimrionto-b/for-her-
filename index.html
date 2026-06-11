@@ -2,69 +2,65 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>For You Jerin ❤️</title>
+<title>For Penguin 🐧❤️</title>
 
 <style>
 body{
   margin:0;
   font-family:Arial;
-  text-align:center;
+  background: linear-gradient(120deg,#0f0c29,#302b63,#ff4d6d);
+  background-size:300% 300%;
+  animation:bg 8s infinite;
   color:white;
-  background: linear-gradient(-45deg,#0f0c29,#302b63,#24243e,#ff4d6d);
-  background-size:400% 400%;
-  animation: gradientBG 10s ease infinite;
+  text-align:center;
   overflow-x:hidden;
 }
 
-@keyframes gradientBG{
+@keyframes bg{
   0%{background-position:0% 50%;}
   50%{background-position:100% 50%;}
   100%{background-position:0% 50%;}
 }
 
 .container{
-  padding:30px;
+  padding:40px 20px;
 }
 
 h1{
-  font-size:40px;
-  margin-top:20px;
+  font-size:42px;
+  text-shadow:0 0 20px #ff4d6d;
 }
 
 p{
   font-size:18px;
-  opacity:0.9;
+  line-height:1.7;
+  max-width:700px;
+  margin:auto;
+  opacity:0.95;
 }
 
-/* images */
 img{
-  width:250px;
-  height:250px;
+  width:220px;
+  height:220px;
   object-fit:cover;
-  border-radius:20px;
+  border-radius:15px;
   margin:10px;
-  box-shadow:0 0 20px rgba(0,0,0,0.4);
+  box-shadow:0 0 15px black;
 }
 
-/* buttons */
 button{
-  padding:12px 28px;
+  padding:12px 25px;
   font-size:18px;
   border:none;
   border-radius:12px;
-  cursor:pointer;
   margin:10px;
-  transition:0.3s;
+  cursor:pointer;
 }
 
-#yesBtn{
+#yes{
   background:#ff2e63;
   color:white;
-  box-shadow:0 0 15px #ff2e63;
-}
-
-#yesBtn:hover{
-  transform:scale(1.1);
+  box-shadow:0 0 20px #ff2e63;
 }
 
 #no{
@@ -75,32 +71,26 @@ button{
 /* floating hearts */
 .heart{
   position:absolute;
-  color:#ff4d6d;
-  animation:floatUp 6s linear infinite;
   font-size:20px;
+  animation:float 5s linear infinite;
 }
 
-@keyframes floatUp{
+@keyframes float{
   0%{transform:translateY(100vh);opacity:1;}
   100%{transform:translateY(-10vh);opacity:0;}
 }
 
-/* typewriter */
-.typewriter{
-  overflow:hidden;
-  border-right:2px solid white;
-  white-space:nowrap;
-  animation:typing 4s steps(40,end), blink 0.8s infinite;
-  display:inline-block;
-}
-
-@keyframes typing{
-  from{width:0}
-  to{width:100%}
-}
-
-@keyframes blink{
-  50%{border-color:transparent;}
+/* popup */
+.popup{
+  display:none;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  background:white;
+  color:black;
+  padding:25px;
+  border-radius:15px;
 }
 </style>
 </head>
@@ -109,35 +99,44 @@ button{
 
 <div class="container">
 
-<h1>❤️ For My Special Girl Jerin ❤️</h1>
+<h1>🐧 For My Penguin ❤️</h1>
 
-<p class="typewriter">
-Jerin, you are not just someone special... you are my peace, my smile, and my favorite thought every day.
+<p>
+Penguin 🐧, from the moment you came into my life, everything started to feel different in the most beautiful way.
+You are not just someone I talk to, you are the place where my thoughts feel calm, where my smile feels real,
+and where my heart feels safe. Every little conversation with you becomes a memory I never want to forget.
+
+I don’t know how you do it, but you make even the simplest moments feel special.
+If I ever had to choose peace in this world, I would choose you every single time.
+You are my favorite person, my comfort, and my softest feeling all in one.
 </p>
 
 <br>
 
-<img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=60">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=60">
-<img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=600&q=60">
+<img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7">
+<img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
 
 <br><br>
 
-<h2>Jerin... will you stay with me forever? ❤️</h2>
+<h2>Penguin 🐧, will you stay with me forever? ❤️</h2>
 
-<button id="yesBtn" onclick="yes()">Yes ❤️</button>
+<button id="yes" onclick="yes()">Yes ❤️</button>
 <button id="no">No 😢</button>
 
 </div>
 
+<div class="popup" id="popup">
+<h2>❤️ Thank You Penguin 🐧 ❤️</h2>
+<p>You just made my world brighter 💖</p>
+</div>
+
 <script>
-// yes action
 function yes(){
-  document.body.innerHTML =
-  "<h1>❤️ She Said Yes! ❤️</h1><h2>Jerin made my whole world complete 💖</h2>";
+  document.getElementById("popup").style.display="block";
 }
 
-// moving NO button
+// moving no button
 const no=document.getElementById("no");
 no.onmouseover=function(){
   this.style.position="absolute";
@@ -145,19 +144,16 @@ no.onmouseover=function(){
   this.style.top=Math.random()*80+"%";
 }
 
-// floating hearts generator
-function createHeart(){
-  const heart=document.createElement("div");
-  heart.className="heart";
-  heart.innerHTML="❤️";
-  heart.style.left=Math.random()*100+"vw";
-  heart.style.fontSize=(10+Math.random()*20)+"px";
-  document.body.appendChild(heart);
-
-  setTimeout(()=>{heart.remove();},6000);
+// floating hearts
+function heart(){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="❤️";
+  h.style.left=Math.random()*100+"vw";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),5000);
 }
-
-setInterval(createHeart,300);
+setInterval(heart,300);
 </script>
 
 </body>
