@@ -4,57 +4,65 @@
 <meta charset="UTF-8">
 <title>For Penguin 🐧❤️</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
 <style>
 body{
   margin:0;
-  font-family:Arial;
-  background: linear-gradient(120deg,#0f0c29,#302b63,#ff4d6d);
-  background-size:300% 300%;
-  animation:bg 8s infinite;
+  background: radial-gradient(circle,#0f0c29,#302b63,#000);
   color:white;
+  font-family:'Poppins', sans-serif;
   text-align:center;
   overflow-x:hidden;
 }
 
-@keyframes bg{
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
+/* background glow */
+.bg{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background:linear-gradient(120deg,#ff4d6d,#6a5acd,#0f0c29);
+  opacity:0.25;
+  animation:move 10s infinite;
+  z-index:-1;
 }
 
-.container{
-  padding:40px 20px;
+@keyframes move{
+  0%{filter:hue-rotate(0deg);}
+  50%{filter:hue-rotate(60deg);}
+  100%{filter:hue-rotate(0deg);}
+}
+
+.card{
+  max-width:750px;
+  margin:50px auto;
+  padding:30px;
+  background:rgba(255,255,255,0.06);
+  border-radius:20px;
+  backdrop-filter:blur(10px);
+  box-shadow:0 0 25px rgba(255,77,109,0.4);
 }
 
 h1{
-  font-size:42px;
-  text-shadow:0 0 20px #ff4d6d;
+  font-family:'Great Vibes', cursive;
+  font-size:45px;
+  color:#ff4d6d;
 }
 
 p{
-  font-size:18px;
-  line-height:1.7;
-  max-width:700px;
-  margin:auto;
+  font-size:17px;
+  line-height:1.8;
   opacity:0.95;
-}
-
-img{
-  width:220px;
-  height:220px;
-  object-fit:cover;
-  border-radius:15px;
-  margin:10px;
-  box-shadow:0 0 15px black;
 }
 
 button{
   padding:12px 25px;
-  font-size:18px;
   border:none;
   border-radius:12px;
+  font-size:18px;
   margin:10px;
   cursor:pointer;
+  transition:0.3s;
 }
 
 #yes{
@@ -63,16 +71,18 @@ button{
   box-shadow:0 0 20px #ff2e63;
 }
 
+#yes:hover{
+  transform:scale(1.1);
+}
+
 #no{
   background:#222;
   color:white;
 }
 
-/* floating hearts */
 .heart{
   position:absolute;
-  font-size:20px;
-  animation:float 5s linear infinite;
+  animation:float 6s linear infinite;
 }
 
 @keyframes float{
@@ -80,7 +90,6 @@ button{
   100%{transform:translateY(-10vh);opacity:0;}
 }
 
-/* popup */
 .popup{
   display:none;
   position:fixed;
@@ -97,29 +106,28 @@ button{
 
 <body>
 
-<div class="container">
+<div class="bg"></div>
 
-<h1>🐧 For My Penguin ❤️</h1>
+<!-- MUSIC -->
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_d5a2b3c2b7.mp3?filename=romantic-love-110397.mp3" type="audio/mp3">
+</audio>
+
+<div class="card">
+
+<h1>🐧 For My Penguin Jerin ❤️</h1>
 
 <p>
-Penguin 🐧, from the moment you came into my life, everything started to feel different in the most beautiful way.
-You are not just someone I talk to, you are the place where my thoughts feel calm, where my smile feels real,
-and where my heart feels safe. Every little conversation with you becomes a memory I never want to forget.
+Jerin 🐧, you are the calm in my chaos and the smile in my every day.  
+You make simple moments feel special without even trying.
 
-I don’t know how you do it, but you make even the simplest moments feel special.
-If I ever had to choose peace in this world, I would choose you every single time.
-You are my favorite person, my comfort, and my softest feeling all in one.
+No matter where life goes, having you in my thoughts always feels like home.  
+You are my peace, my comfort, and my favorite feeling in this world.
 </p>
 
-<br>
-
-<img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7">
-<img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131">
-<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-
-<br><br>
-
-<h2>Penguin 🐧, will you stay with me forever? ❤️</h2>
+<h2 style="font-family:'Great Vibes', cursive; color:#ff4d6d;">
+Will you stay with me forever, Penguin 🐧? ❤️
+</h2>
 
 <button id="yes" onclick="yes()">Yes ❤️</button>
 <button id="no">No 😢</button>
@@ -127,8 +135,10 @@ You are my favorite person, my comfort, and my softest feeling all in one.
 </div>
 
 <div class="popup" id="popup">
-<h2>❤️ Thank You Penguin 🐧 ❤️</h2>
-<p>You just made my world brighter 💖</p>
+<h2>🐧❤️ She Said Yes!</h2>
+<p>Thank you for choosing love 💖</p>
+<br>
+<h3>Rionto loves you so much ❤️</h3>
 </div>
 
 <script>
@@ -136,7 +146,7 @@ function yes(){
   document.getElementById("popup").style.display="block";
 }
 
-// moving no button
+// moving NO button
 const no=document.getElementById("no");
 no.onmouseover=function(){
   this.style.position="absolute";
@@ -151,7 +161,7 @@ function heart(){
   h.innerHTML="❤️";
   h.style.left=Math.random()*100+"vw";
   document.body.appendChild(h);
-  setTimeout(()=>h.remove(),5000);
+  setTimeout(()=>h.remove(),6000);
 }
 setInterval(heart,300);
 </script>
