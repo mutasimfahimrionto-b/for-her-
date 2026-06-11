@@ -1,1 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For You Jerin ❤️</title>
 
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  text-align:center;
+  color:white;
+  background: linear-gradient(-45deg,#0f0c29,#302b63,#24243e,#ff4d6d);
+  background-size:400% 400%;
+  animation: gradientBG 10s ease infinite;
+  overflow-x:hidden;
+}
+
+@keyframes gradientBG{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+.container{
+  padding:30px;
+}
+
+h1{
+  font-size:40px;
+  margin-top:20px;
+}
+
+p{
+  font-size:18px;
+  opacity:0.9;
+}
+
+/* images */
+img{
+  width:250px;
+  height:250px;
+  object-fit:cover;
+  border-radius:20px;
+  margin:10px;
+  box-shadow:0 0 20px rgba(0,0,0,0.4);
+}
+
+/* buttons */
+button{
+  padding:12px 28px;
+  font-size:18px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  margin:10px;
+  transition:0.3s;
+}
+
+#yesBtn{
+  background:#ff2e63;
+  color:white;
+  box-shadow:0 0 15px #ff2e63;
+}
+
+#yesBtn:hover{
+  transform:scale(1.1);
+}
+
+#no{
+  background:#222;
+  color:white;
+}
+
+/* floating hearts */
+.heart{
+  position:absolute;
+  color:#ff4d6d;
+  animation:floatUp 6s linear infinite;
+  font-size:20px;
+}
+
+@keyframes floatUp{
+  0%{transform:translateY(100vh);opacity:1;}
+  100%{transform:translateY(-10vh);opacity:0;}
+}
+
+/* typewriter */
+.typewriter{
+  overflow:hidden;
+  border-right:2px solid white;
+  white-space:nowrap;
+  animation:typing 4s steps(40,end), blink 0.8s infinite;
+  display:inline-block;
+}
+
+@keyframes typing{
+  from{width:0}
+  to{width:100%}
+}
+
+@keyframes blink{
+  50%{border-color:transparent;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>❤️ For My Special Girl Jerin ❤️</h1>
+
+<p class="typewriter">
+Jerin, you are not just someone special... you are my peace, my smile, and my favorite thought every day.
+</p>
+
+<br>
+
+<img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=600&q=60">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=60">
+<img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=600&q=60">
+
+<br><br>
+
+<h2>Jerin... will you stay with me forever? ❤️</h2>
+
+<button id="yesBtn" onclick="yes()">Yes ❤️</button>
+<button id="no">No 😢</button>
+
+</div>
+
+<script>
+// yes action
+function yes(){
+  document.body.innerHTML =
+  "<h1>❤️ She Said Yes! ❤️</h1><h2>Jerin made my whole world complete 💖</h2>";
+}
+
+// moving NO button
+const no=document.getElementById("no");
+no.onmouseover=function(){
+  this.style.position="absolute";
+  this.style.left=Math.random()*80+"%";
+  this.style.top=Math.random()*80+"%";
+}
+
+// floating hearts generator
+function createHeart(){
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.innerHTML="❤️";
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=(10+Math.random()*20)+"px";
+  document.body.appendChild(heart);
+
+  setTimeout(()=>{heart.remove();},6000);
+}
+
+setInterval(createHeart,300);
+</script>
+
+</body>
+</html>
